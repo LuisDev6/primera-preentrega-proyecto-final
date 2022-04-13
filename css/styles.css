@@ -1,0 +1,13 @@
+.body{
+    background-color:#E3CAA5;
+    height: 100%;
+    width: 100%;
+}
+.header{
+    background-color: #AD8B73;
+}
+.h1main{
+    text-align: center;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
