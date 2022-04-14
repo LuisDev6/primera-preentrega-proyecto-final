@@ -21,6 +21,10 @@ function ingresoUsuarios() {
     return accesoExistoso;
 }
 
+function crearCuenta(){
+    
+}
+
 function inicioSesion() {
 
     let user = prompt("Ingrese su nombre de usuario:");
@@ -68,28 +72,35 @@ function menu() {
 
             const resultado = arrayProducto.filter(producto => producto.categoria === "MACETA")
             console.log(resultado);
+            menu();
 
         }
             break;
         case 2: {
             const resultado = arrayProducto.filter(producto => producto.categoria === "FUENTE")
             console.log(resultado);
+            menu();
         }
 
             break;
         case 3:{
             const resultado = arrayProducto.filter(producto => producto.categoria === "BEBEDERO")
             console.log(resultado);
+            menu();
         }
 
             break;
         case 4:{
             const resultado = arrayProducto.filter(producto => producto.categoria === "ADORNO")
             console.log(resultado);
+            menu();
         }
 
             break;
-        case value:
+        case 5:{
+
+            alert("FIN DEL PROGRAMA. GRACIAS!")
+        }
 
             break;
 
