@@ -1,4 +1,6 @@
 /* DECLARACION DE FUNCIONES */
+const usuario = { nombre: "luis", clave: "123" };
+const arrayUsuario = [usuario];
 
 function bienvenida() {
     alert("Bienvenidos a MyO Artesanal");
@@ -11,69 +13,104 @@ function ingresoUsuarios() {
     let existeUsuario = parseInt(prompt("Tiene una cuenta?\n1) Iniciar Sesión.\n2) Crear Cuenta."));
 
     if (existeUsuario === 1) {
-        inicioSesion();
+    accesoExistoso = inicioSesion();
     } else {
         crearCuenta();
     }
+    
+    return accesoExistoso;
 }
 
 function inicioSesion() {
 
+    let user = prompt("Ingrese su nombre de usuario:");
+    user = user.toLowerCase();
+    let pass = prompt("Ingrese su clave:");
+    pass = pass.toLowerCase();
+
+    let acceso = verificaUsuario(user, pass);
+    return acceso;
 }
 
 
-function menu() {
 
-    let preguntaMenu = parseInt(prompt("Seleccione el numero de la Categoria que desea mirar: \n1) Macetas.\n2) Fuentes de agua.\n3) Bebederos de aves.\n4) Adornos de jardin.\n5) Salir del sistema"));
+function verificaUsuario(user, pass) {
+    let existeUsuario = false;
+    let existeClave = false;
+    let usuarioValido = false;
 
-    switch (preguntaMenu) {
-        case 1:
+    for (const usuario of arrayUsuario) {
+        alert("buscando usuario");
 
-            break;
-        case 2:
+        existeUsuario = usuario.nombre.includes(user);
+        existeClave = usuario.clave.includes(pass);
+        console.log(existeUsuario);
+        console.log(existeClave);
 
-            break;
-        case 3:
+        if(existeUsuario === true && existeClave === true){
 
-            break;
-        case 4:
-
-            break;
-        case value:
-
-            break;
-
-        default:
-            break;
+            usuarioValido = true;
+        }else{
+            alert("No se encontro el usuario y la contraseña");
+        }
     }
+        console.log(usuarioValido);
+        return usuarioValido;
+
 }
+    function menu() {
+
+        let preguntaMenu = parseInt(prompt("Seleccione el numero de la Categoria que desea mirar: \n1) Macetas.\n2) Fuentes de agua.\n3) Bebederos de aves.\n4) Adornos de jardin.\n5) Salir del sistema"));
+
+        switch (preguntaMenu) {
+            case 1:
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+            case value:
+
+                break;
+
+            default:
+                break;
+        }
+    }
 
 
 
 
 
 
-/* INICIO DEL SISTEMA */
-
-const objeto1 = { id: 1, producto: "Arroz" };
-const array = [objeto1, { id: 2, producto: "Fideo" }];
-
-/* DECLARACION DE ARRAY */
-const producto = { categoria: "maceta", codigo: 001, precio: 200, color: "verde" };
-const arrayProducto = [producto];
-
-const usuario = { nombre: "luis", clave: 123 };
-const arrayUsuario = [usuario];
-
-const carrito = [];}
-
-do {
-
-    bienvenida();
-    ingresoUsuarios();
+    /* INICIO DEL SISTEMA */
 
 
-} while (usuarioValido != 0);
+    /* DECLARACION DE ARRAYS */
+    const producto = { categoria: "maceta", codigo: 001, precio: 200, color: "verde" };
+    const arrayProducto = [producto];
 
 
-menu();
+
+    const carrito = { categoria: null, codigo: null, precio: null, color: null };
+
+    /* const carrito = [];} */
+
+    let accesoExistoso;
+
+    do {
+
+        bienvenida();
+        ingresoUsuarios();
+
+
+    } while (accesoExistoso != true);
+    alert("Acceso exitoso!")
+
+    menu();
