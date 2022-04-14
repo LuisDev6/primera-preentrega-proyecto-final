@@ -66,7 +66,7 @@ function crearCuenta() {
     if (confirma === "S") {
 
         arrayUsuario.push(new usuario(usuarioNuevo, claveNueva));
-        let ultimo = arrayUsuario[arrayProducto.length - 1];
+        let ultimo = arrayUsuario[usuario.length - 1];
         console.log(ultimo);
         ingresoUsuarios();
     } else {
