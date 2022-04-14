@@ -13,11 +13,11 @@ function ingresoUsuarios() {
     let existeUsuario = parseInt(prompt("Tiene una cuenta?\n1) Iniciar Sesión.\n2) Crear Cuenta."));
 
     if (existeUsuario === 1) {
-    accesoExistoso = inicioSesion();
+        accesoExistoso = inicioSesion();
     } else {
         crearCuenta();
     }
-    
+
     return accesoExistoso;
 }
 
@@ -47,70 +47,104 @@ function verificaUsuario(user, pass) {
         console.log(existeUsuario);
         console.log(existeClave);
 
-        if(existeUsuario === true && existeClave === true){
+        if (existeUsuario === true && existeClave === true) {
 
             usuarioValido = true;
-        }else{
+        } else {
             alert("No se encontro el usuario y la contraseña");
         }
     }
-        console.log(usuarioValido);
-        return usuarioValido;
+    console.log(usuarioValido);
+    return usuarioValido;
 
 }
-    function menu() {
+function menu() {
 
-        let preguntaMenu = parseInt(prompt("Seleccione el numero de la Categoria que desea mirar: \n1) Macetas.\n2) Fuentes de agua.\n3) Bebederos de aves.\n4) Adornos de jardin.\n5) Salir del sistema"));
+    let preguntaMenu = parseInt(prompt("Seleccione el numero de la Categoria que desea mirar: \n1) Macetas.\n2) Fuentes de agua.\n3) Bebederos de aves.\n4) Adornos de jardin.\n5) Salir del sistema"));
 
-        switch (preguntaMenu) {
-            case 1:
+    switch (preguntaMenu) {
+        case 1: {
 
-                break;
-            case 2:
 
-                break;
-            case 3:
+            const resultado = arrayProducto.filter(producto => producto.categoria === "MACETA")
+            console.log(resultado);
 
-                break;
-            case 4:
-
-                break;
-            case value:
-
-                break;
-
-            default:
-                break;
         }
+            break;
+        case 2: {
+            const resultado = arrayProducto.filter(producto => producto.categoria === "FUENTE")
+            console.log(resultado);
+        }
+
+            break;
+        case 3:{
+            const resultado = arrayProducto.filter(producto => producto.categoria === "BEBEDERO")
+            console.log(resultado);
+        }
+
+            break;
+        case 4:{
+            const resultado = arrayProducto.filter(producto => producto.categoria === "ADORNO")
+            console.log(resultado);
+        }
+
+            break;
+        case value:
+
+            break;
+
+        default:
+            break;
     }
+}
 
 
 
 
 
 
-    /* INICIO DEL SISTEMA */
+/* INICIO DEL SISTEMA */
 
 
-    /* DECLARACION DE ARRAYS */
-    const producto = { categoria: "maceta", codigo: 001, precio: 200, color: "verde" };
-    const arrayProducto = [producto];
+/* DECLARACION DE ARRAYS */
+class producto {
+    constructor(categoria, codigo, precio, color) {
+        this.categoria = categoria.toUpperCase();
+        this.codigo = parseInt(codigo);
+        this.precio = parseFloat(precio);
+        this.color = color.toUpperCase();
+    }
+}
+const arrayProducto = [];
+arrayProducto.push(new producto("Maceta", "001", "200", "verde"));
+arrayProducto.push(new producto("Maceta", "002", "300", "roja"));
+arrayProducto.push(new producto("Maceta", "003", "500", "azul"));
+arrayProducto.push(new producto("Maceta", "004", "900", "marron"));
+arrayProducto.push(new producto("Fuente", "005", "300", "rosa"));
+arrayProducto.push(new producto("Fuente", "006", "100", "violeta"));
+arrayProducto.push(new producto("Fuente", "007", "1000", "roja"));
+arrayProducto.push(new producto("Fuente", "008", "400", "cemento"));
+arrayProducto.push(new producto("Bebedero", "009", "1500", "roja"));
+arrayProducto.push(new producto("Bebedero", "010", "1400", "cemento"));
+arrayProducto.push(new producto("Adorno", "011", "1200", "azul"));
+arrayProducto.push(new producto("Adorno", "012", "700", "verde"));
 
 
 
-    const carrito = { categoria: null, codigo: null, precio: null, color: null };
 
-    /* const carrito = [];} */
+const carrito = { categoria: null, codigo: null, precio: null, color: null };
 
-    let accesoExistoso;
+/* const carrito = [];} */
 
-    do {
+let accesoExistoso;
 
-        bienvenida();
-        ingresoUsuarios();
+do {
+
+    bienvenida();
+    ingresoUsuarios();
 
 
-    } while (accesoExistoso != true);
-    alert("Acceso exitoso!")
+} while (accesoExistoso != true);
+alert("Acceso exitoso!")
 
-    menu();
+menu();
